@@ -11,14 +11,22 @@ import com.google.inject.servlet.GuiceServletContextListener;
 import com.google.inject.servlet.ServletModule;
 import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
 
+/**
+ * This class initializes Guice.
+ * @author sukrit
+ * 
+ */
 @WebListener
 public class AppServletConfig extends GuiceServletContextListener {
-
-	private static final Logger logger = LoggerFactory
+	
+	/**
+	 * Logger object.
+	 */
+	private static Logger logger = LoggerFactory
 			.getLogger(AppServletConfig.class);
 
 	@Override
-	protected Injector getInjector() {
+	protected final Injector getInjector() {
 
 		return Guice.createInjector(new ServletModule() {
 
