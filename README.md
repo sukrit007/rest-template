@@ -1,4 +1,4 @@
 rest-template
 =============
 
-This is a template showing Restful Interface.
+This is a maven-adrch type showing Restful Interface.
