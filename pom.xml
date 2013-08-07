@@ -10,6 +10,7 @@
 	<properties>
 		<sl4j.version>1.7.5</sl4j.version>
 		<jersey.version>1.17.1</jersey.version>
+		<java.version>1.7</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -36,6 +37,12 @@
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-server</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
 			<version>${jersey.version}</version>
 		</dependency>
 
@@ -73,8 +80,8 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 				<version>2.3.2</version>
 
