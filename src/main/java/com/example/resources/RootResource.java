@@ -35,14 +35,12 @@ public class RootResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public final BaseRepresentation get(@Context UriInfo uriInfo) {
-		return new BaseRepresentation(new LinksBuilder(uriInfo.getBaseUri())
-			.add("self",
-				fromResource(RootResource.class)
-					.build(new Object[]{}))
-			.add("example", 
-				fromPath("example").build(new Object[]{}))
-		);
-		
-		
+		return new BaseRepresentation(
+				new LinksBuilder(uriInfo.getBaseUri())
+						.add("self",
+								fromResource(RootResource.class).build(
+										new Object[] {})).add("example",
+								fromPath("example").build(new Object[] {})));
+
 	}
 }

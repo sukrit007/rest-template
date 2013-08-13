@@ -1,6 +1,8 @@
 package com.example.representation;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.codehaus.jackson.annotate.JsonProperty;
@@ -9,12 +11,15 @@ import com.example.util.LinksBuilder;
 
 public class BaseRepresentation {
 
-	private Map<String, Map<String, String>> links = new HashMap<>();
+	private List<Link> links = new ArrayList<>();
+	
+	
 
-	@JsonProperty("_links")
-	public Map<String, Map<String, String>> getLinks() {
+	public List<Link> getLinks() {
 		return links;
 	}
+
+
 
 	public BaseRepresentation(LinksBuilder builder) {
 		super();
