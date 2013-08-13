@@ -1,7 +1,7 @@
 package com.example.resources;
 
 import static javax.ws.rs.core.UriBuilder.fromPath;
-import static javax.ws.rs.core.UriBuilder.fromResource;
+import static com.example.resources.ResourceHelper.defaultLinksBuilder;
 
 import javax.inject.Singleton;
 import javax.ws.rs.Consumes;
@@ -35,12 +35,9 @@ public class RootResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public final BaseRepresentation get(@Context UriInfo uriInfo) {
-		return new BaseRepresentation(
-				new LinksBuilder(uriInfo.getBaseUri())
-						.add("self",
-								fromResource(RootResource.class).build(
-										new Object[] {})).add("example",
-								fromPath("example").build(new Object[] {})));
+		LinksBuilder linksBuilder = defaultLinksBuilder(uriInfo).add("example",
+				fromPath("example").build(new Object[] {}));
+		return new BaseRepresentation(linksBuilder);
 
 	}
 }

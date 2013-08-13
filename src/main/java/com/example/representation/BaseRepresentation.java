@@ -1,29 +1,27 @@
 package com.example.representation;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import org.codehaus.jackson.annotate.JsonProperty;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 import com.example.util.LinksBuilder;
 
 public class BaseRepresentation {
 
-	private List<Link> links = new ArrayList<>();
-	
-	
+	private LinksBuilder linksBuilder;
 
 	public List<Link> getLinks() {
-		return links;
+		return linksBuilder.build();
 	}
-
-
 
 	public BaseRepresentation(LinksBuilder builder) {
 		super();
-		this.links = builder.build();
+		this.linksBuilder = builder;
+	}
+
+	@JsonIgnore
+	public LinksBuilder getLinksBuilder() {
+		return linksBuilder;
 	}
 
 }

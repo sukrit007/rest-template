@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.ws.rs.core.UriInfo;
+
 import com.example.representation.Link;
 import com.google.common.collect.ImmutableMap;
 
@@ -26,6 +28,10 @@ public class LinksBuilder {
 
 	public List<Link> build() {
 		return links;
+	}
+	
+	public static LinksBuilder from(UriInfo uriInfo) {
+		return new LinksBuilder(uriInfo.getBaseUri());
 	}
 
 }
