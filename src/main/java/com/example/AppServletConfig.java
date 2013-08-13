@@ -44,7 +44,7 @@ public class AppServletConfig extends GuiceServletContextListener {
 						"com.example.resources");
 				params.put("com.sun.jersey.api.json.POJOMappingFeature",
 						"true");
-				serve("/api/*").with(GuiceContainer.class, params);  
+				serve("/api/*").with(GuiceContainer.class, params);
 				
 
 			}

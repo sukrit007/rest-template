@@ -1,14 +1,19 @@
 package com.example.resources;
 
-import java.util.HashMap;
-import java.util.Map;
+import static javax.ws.rs.core.UriBuilder.fromPath;
+import static javax.ws.rs.core.UriBuilder.fromResource;
 
 import javax.inject.Singleton;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.UriInfo;
+
+import com.example.representation.BaseRepresentation;
+import com.example.util.LinksBuilder;
 
 /**
  * This defines root resource for the application.
@@ -29,10 +34,15 @@ public class RootResource {
 	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public final Map<String, String> get() {
-		Map<String, String> links = new HashMap<>();
-		links.put("self", "/");
-		links.put("example", "/api/example");
-		return links;
+	public final BaseRepresentation get(@Context UriInfo uriInfo) {
+		return new BaseRepresentation(new LinksBuilder(uriInfo.getBaseUri())
+			.add("self",
+				fromResource(RootResource.class)
+					.build(new Object[]{}))
+			.add("example", 
+				fromPath("example").build(new Object[]{}))
+		);
+		
+		
 	}
 }

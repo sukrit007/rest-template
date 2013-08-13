@@ -51,6 +51,13 @@
 			<artifactId>jersey-guice</artifactId>
 			<version>${jersey.version}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>14.0.1</version>
+		</dependency>
+		
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
